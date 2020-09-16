@@ -1,0 +1,91 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+	"title": {
+		"text": "Market Access",
+		"dy": -12
+	},
+	"description": "Sample pie chart",
+	"background": "#FFF",
+	"width": 300,
+	"height": 300,
+	"padding": {
+		"top": 24,
+		"right": 24,
+		"bottom": 24,
+		"left": 24
+	},
+	"data": {
+		"values": [{
+				"category": "Market_access_Y",
+				"value": 62.5,
+				"labeldesc": "0.0M / 0.0%-reporting challenges"
+			},
+			{
+				"category":  "Market_access_N",
+				"value": 44.44,
+				"labeldesc": "2.4M / 93.8%-reporting no challenges"
+			}
+		]
+	},
+	"encoding": {
+		"theta": {
+			"field": "value",
+			"type": "quantitative",
+			"stack": true
+		},
+		"color": {
+			"field": "value",
+			"type": "nominal",
+			"scale": {
+				"range": ["#bada55", "#acab68", "#99C3E1", "#90D1C5"]
+			},
+			"legend": null
+		},
+		"order": {
+			"field": "quantity",
+			"sort": "descending"
+		}
+	},
+	"layer": [{
+			"mark": {
+				"type": "arc",
+				"outerRadius": 100,
+				"innerRadius": 80
+			}
+		}, {
+			"mark": {
+				"type": "text",
+				"radius": 110,
+				"fontSize": 12,
+				"lineBreak": "-",
+				"fill": "#005589"
+			},
+			"encoding": {
+				"text": {
+					"field": "labeldesc",
+					"type": "nominal"
+				}
+			}
+		}, {
+			"mark": {
+				"type": "image",
+				"width": 40,
+				"height": 40,
+				"x": 150,
+				"y": 150,
+				"align": "center",
+				"baseline": "middle",
+				"opacity": 0.5
+			},
+			"encoding": {
+				"url": {
+					"value": "https://vega.github.io/images/idl-logo.png"
+				}
+			}
+		}
+
+	],
+	"view": {
+		"stroke": null
+	}
+}
